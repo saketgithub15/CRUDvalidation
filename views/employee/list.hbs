@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+   <form action="/employee/login" method="POST" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" placeholder="Name"  name="fullName">
+      <input class="form-control mr-sm-2" placeholder="Email" aria-label="Search" name="email">
+      <button class="btn btn-secondary" type="submit"> Search</button>
+   </form> 
+</nav>
+
+
+
+<h3><a class="btn btn-secondary" href="/employee"><i class="fa fa-plus"></i> Create New</a> Employee List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Designation</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.salary}}</td>
+            <td>{{this.designation}}</td>
+            <td>
+                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+    <div class="container-fluid">
+           <canvas id="myChart"></canvas>
+    </div>
+
+<script>
+
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let emcpChart = new Chart(myChart, {
+        type: 'bar',
+        data:{
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Friday'],
+            datasets: [{
+                label: "Day",
+                data: [
+                        6,
+                        3,
+                        4,
+                        2,
+                        3,
+                ],
+                backgroundColor:'rgba(54, 162, 235, 0.6)'
+            }]
+        },
+        options: []
+    })
+</script>

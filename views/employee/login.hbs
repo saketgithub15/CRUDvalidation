@@ -1,0 +1,34 @@
+{{!-- <h3><a class="btn btn-secondary" href="/employee"><i class="fa fa-plus"></i> Create New</a> Employee List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Designation</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.salary}}</td>
+            <td>{{this.designation}}</td>
+            <td>
+                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+      
+    </tbody>
+</table> --}}
+
+
+
+ <form action="/employee/login" method="POST" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" placeholder="Name"  name="fullName">
+      <input class="form-control mr-sm-2" placeholder="Email" aria-label="Search" name="email">
+      <button class="btn btn-secondary" type="submit"> Search</button>
+    </form>
