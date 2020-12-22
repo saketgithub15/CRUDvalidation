@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
+const port = process.env.PORT || 8000;
 
 const employeeController = require('./controllers/employeeController');
 
@@ -21,8 +22,8 @@ app.get('/', (req, res)=>{
 })
 
 
-app.listen(3000, () => {
-    console.log('Express server started at port : 3000');
+app.listen(port, () => {
+    console.log(`Express server started at port : ${port}`);
 });
 
 app.use('/employee', employeeController);
